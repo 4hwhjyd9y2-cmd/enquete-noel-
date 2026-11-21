@@ -99,7 +99,7 @@
     <div class="tab">Pièce n° 1</div>
     <div class="kicker">Étape 1 sur 6 · Fouille</div>
     <h2>Le témoin</h2>
-    <p class="type">Un témoin (qui souhaite rester anonyme, mais qui a des moustaches et ronronne) affirme avoir vu une silhouette rôder près d'un drôle d'occupant du salon : il n'habite chez vous qu'en décembre, porte des boules sans jamais jouer au foot, et s'allume sans jamais se mettre en colère.</p>
+    <p class="type">Un témoin (qui souhaite rester anonyme, mais qui sent vaguement les croquettes) affirme avoir vu une silhouette rôder près d'un drôle d'occupant du salon : il n'habite chez vous qu'en décembre, porte des boules sans jamais jouer au foot, et s'allume sans jamais se mettre en colère.</p>
     <p class="type">Le voleur y a perdu un papier. Fouillez <b>dans ses branches</b>. Attention aux épines, la mutuelle ne rembourse pas les blessures d'enquête.</p>
     <form data-step="0">
       <label for="a0">Une fois la pièce n° 1 déchiffrée : où le voleur compte-t-il frapper ?</label>
@@ -191,8 +191,8 @@
     <div class="tab">Pièce n° 6</div>
     <div class="kicker">Étape 6 sur 6 · Fouille</div>
     <h2>Le pli</h2>
-    <p class="type">Un chat ! Le jardinier et un chat noir. Le duo le plus improbable depuis Laurel et Hardy.</p>
-    <p class="type">Interrogé (contre trois croquettes), le chat avoue tout : le pli est caché à l'endroit le plus douillet de la maison, là où vous posez la tête chaque nuit. Évidemment, c'est un chat, il ne pense qu'à dormir.</p>
+    <p class="type">Un chien ! Le jardinier et un chien. Le duo le plus improbable depuis Laurel et Hardy.</p>
+    <p class="type">Interrogé (contre un os à mâcher), le chien avoue tout : le pli est caché à l'endroit le plus douillet de la maison, là où vous posez la tête chaque nuit. Évidemment : le seul endroit où il n'a jamais eu le droit de monter.</p>
     <p class="type">Le code que vous avez trouvé au grenier vous servira peut-être encore...</p>
     <form data-step="5">
       <label for="a5">D'après la pièce n° 6 : quel nom ouvre le sceau ?</label>
@@ -211,7 +211,7 @@
     <div class="stamp" style="border-color:#2f6b2a;color:#2f6b2a">RÉSOLU</div>
     <div class="kicker">Bravo, enquêteurs</div>
     <h1>Le pli est retrouvé !</h1>
-    <p class="type">Sous l'oreiller, entre deux plumes et un poil de chat, le pli. À l'intérieur, une invitation : votre talent d'enquêteurs ne restera pas sans emploi : une vraie scène de crime vous attend, avec dîner trois plats, comédiens, suspects et coupable à démasquer avant le dessert.</p>
+    <p class="type">Sous l'oreiller, entre deux plumes et trois poils de chien, le pli. À l'intérieur, une invitation : votre talent d'enquêteurs ne restera pas sans emploi : une vraie scène de crime vous attend, avec dîner trois plats, comédiens, suspects et coupable à démasquer avant le dessert.</p>
     <div class="card">
       <div class="brand">fever</div>
       <div>Carte-cadeau · La Soirée Criminelle</div>
@@ -229,7 +229,7 @@
     </ol>
     <div class="note">Le coupon est valable 1 an, jusqu'au 21 novembre 2027 : prenez le temps de choisir votre soirée.</div>
     <p class="sign">Joyeux Noël !<br>Le commissaire Marin</p>
-    <p class="type" style="font-size:13px;color:#6b5a45">PS : le jardinier et le chat ont été relâchés pour bonne conduite. Le chat a gardé les croquettes.</p>
+    <p class="type" style="font-size:13px;color:#6b5a45">PS : le jardinier et le chien ont été relâchés pour bonne conduite. Le chien a gardé l'os.</p>
   </section>
 
   <div class="foot">Brigade criminelle de Combourg · <button class="ghost reset" id="resetBtn" style="font-size:12px">recommencer</button></div>
@@ -237,15 +237,15 @@
 
 <script>
 (function(){
-  var HASHES=[["3cafd736f402e96ae25ff3505e4ddf5d06b928c73f1b15fd6e84aadc7d5ca726"],["383181923b9d5635397602ec2a5041dd9fd59abab2845d0eeac799ac1c1dcc11"],["6d4c37edf132aacdf392de7993b5e2c5fcc234b2944f802c43ef21b589940122"],["522e6198a268c62c01c9944cc2c06902d8308d65e6444eb8ad10bbe98dc362b6"],["d8f65e96e482a37e047634e3a087f6fd6a88a636587d7d3b622bb2e123b546fb"],["a9b0217517d098a78b2aac88577b871a80e1ac687da63885772520b4dcc8a383"]];
-  var SEALED="c980a8bbffe89fd5168516ff804b0f";
+  var HASHES=[["3cafd736f402e96ae25ff3505e4ddf5d06b928c73f1b15fd6e84aadc7d5ca726"],["383181923b9d5635397602ec2a5041dd9fd59abab2845d0eeac799ac1c1dcc11"],["6d4c37edf132aacdf392de7993b5e2c5fcc234b2944f802c43ef21b589940122"],["522e6198a268c62c01c9944cc2c06902d8308d65e6444eb8ad10bbe98dc362b6"],["0d272e028282e34756a8ad41493ac4292612b607c4f7296c3f05d32eb32d886e"],["a9b0217517d098a78b2aac88577b871a80e1ac687da63885772520b4dcc8a383"]];
+  var SEALED="f46c687a3ceb09fe6d22e889f96de5";
   var WRONG=[
     ["Ce mot ne veut rien dire... sauf en klingon. Reculez de trois.","Pas encore. Lettre par lettre, on ne s'énerve pas.","Les aides sont là pour ça. Personne ne le saura."],
     ["Ce suspect a un alibi en béton : il faisait la vaisselle. Un miracle.","Non. Refaites le calcul des vérités.","Essayez l'aide. Le commissaire ne juge pas. Enfin, un peu."],
     ["Non. Avez-vous bien survécu à l'odeur ?","Relisez le rapport, mais seulement le début.","L'aide est conseillée, surtout en cas de malaise olfactif."],
     ["Le code ne colle pas. Une araignée ricane.","Relisez chaque phrase du carnet.","Un coup de pouce ?"],
     ["Ce complice n'existe pas. Avez-vous essayé de lire dans le miroir ?","Toujours pas. Le message est à l'envers, pas vous.","L'aide pour l'énigme vous attend."],
-    ["Le sceau ne bouge pas. Il attend un nom précis.","Pensez au château de Combourg et à son chat noir.","L'aide vous mettra sur la voie."]
+    ["Le sceau ne bouge pas. Il attend un nom précis.","Pensez au château de Combourg et à ses fantômes.","L'aide vous mettra sur la voie."]
   ];
 
   function norm(s,step){
@@ -253,7 +253,7 @@
     if(step===0){ s=s.replace(/^(LE|AU|MUSEEDU|MUSEE|DU)/,""); s=s.replace(/^(DU|LE)/,""); }
     if(step===1){ s=s.replace(/^(CEST|LE|LA)+/,""); s=s.replace(/^(LE|LA)/,""); }
     if(step===2){ s=s.replace(/^(DANSLE|AU|LE)/,""); }
-    if(step===4){ s=s.replace(/^(CEST|LE|UN)+/,""); s=s.replace(/NOIR$/,""); }
+    if(step===4){ s=s.replace(/^(CEST|LE|UN)+/,""); }
     if(step===5){ s=s.replace(/^(FRANCOISRENE(DE)?|RENE|FRANCOIS|VICOMTE(DE)?)/,""); s=s.replace(/^DE/,""); }
     return s;
   }
@@ -293,8 +293,8 @@
   }
 
   var answers=[], step=-1, fails=[0,0,0,0,0,0];
-  function save(){ try{ localStorage.setItem("dossier1958v3",JSON.stringify({a:answers})); }catch(e){} }
-  function load(){ try{ var d=JSON.parse(localStorage.getItem("dossier1958v3")||"null"); if(d&&d.a) return d.a; }catch(e){} return null; }
+  function save(){ try{ localStorage.setItem("dossier1958v4",JSON.stringify({a:answers})); }catch(e){} }
+  function load(){ try{ var d=JSON.parse(localStorage.getItem("dossier1958v4")||"null"); if(d&&d.a) return d.a; }catch(e){} return null; }
 
   function show(id){
     document.querySelectorAll("section.file").forEach(function(s){s.classList.add("hidden");s.classList.remove("fade");});
