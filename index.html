@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dossier 1958 : l'affaire du pli disparu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Playfair+Display:wght@700;900&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#16120f; --paper:#efe4cc; --paper2:#e6d7b8; --ink:#2a2118; --muted:#6b5a45;
+    --red:#a3221b; --gold:#c9a24a;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,sans-serif}
+  body{min-height:100vh;padding:20px 14px 60px;
+    background:radial-gradient(ellipse at top,#2a211a 0%,#16120f 60%);}
+  .wrap{max-width:560px;margin:0 auto}
+  .file{background:var(--paper);border-radius:4px;padding:26px 22px 28px;position:relative;
+    box-shadow:0 18px 40px rgba(0,0,0,.55), inset 0 0 60px rgba(120,90,40,.18);
+    background-image:repeating-linear-gradient(0deg,transparent 0 27px,rgba(120,90,40,.07) 27px 28px);}
+  .tab{position:absolute;top:-14px;left:22px;background:var(--paper2);padding:4px 14px 2px;border-radius:4px 4px 0 0;
+    font-family:"Special Elite",monospace;font-size:13px;color:var(--muted)}
+  .stamp{position:absolute;top:18px;right:14px;transform:rotate(9deg);border:3px solid var(--red);color:var(--red);
+    font-family:"Special Elite",monospace;font-size:13px;padding:4px 8px;letter-spacing:2px;opacity:.85}
+  h1{font-family:"Playfair Display",serif;font-weight:900;font-size:30px;line-height:1.1;margin:18px 0 6px;padding-right:90px}
+  h2{font-family:"Playfair Display",serif;font-size:22px;margin:0 0 4px}
+  .kicker{font-family:"Special Elite",monospace;color:var(--red);font-size:13px;letter-spacing:1.5px;text-transform:uppercase}
+  p,li{font-size:16px;line-height:1.55}
+  .type{font-family:"Special Elite",monospace;font-size:16px;line-height:1.6}
+  .note{background:#fff8e6;border-left:4px solid var(--gold);padding:12px 14px;margin:16px 0;
+    font-family:"Special Elite",monospace;transform:rotate(-.4deg);box-shadow:0 2px 6px rgba(0,0,0,.12)}
+  .cipher{font-family:"Special Elite",monospace;font-size:34px;letter-spacing:10px;text-align:center;
+    background:#2a2118;color:#efe4cc;padding:14px 8px;border-radius:3px;margin:16px 0}
+  .suspects{display:grid;gap:10px;margin:14px 0}
+  .suspect{background:#fff8e6;padding:10px 12px;border-radius:3px;box-shadow:0 1px 4px rgba(0,0,0,.12)}
+  .suspect b{font-family:"Playfair Display",serif;font-size:17px}
+  .suspect .type{font-size:15px}
+  form{margin-top:18px}
+  label{display:block;font-weight:600;font-size:14px;margin-bottom:6px;color:var(--muted)}
+  .row{display:flex;gap:8px}
+  input{flex:1;min-width:0;font-family:"Special Elite",monospace;font-size:20px;padding:12px;border:2px solid var(--ink);
+    background:#fffdf6;border-radius:3px;text-transform:uppercase;color:var(--ink)}
+  input:focus{outline:3px solid var(--gold);outline-offset:1px}
+  button{font-family:Inter,sans-serif;font-weight:600;font-size:16px;border:0;border-radius:3px;cursor:pointer;min-height:48px}
+  .go{background:var(--red);color:#fff;padding:0 18px}
+  .go:active{transform:translateY(1px)}
+  .ghost{background:transparent;color:var(--muted);text-decoration:underline;padding:8px 0;min-height:auto;font-size:14px}
+  .msg{min-height:24px;margin-top:10px;font-family:"Special Elite",monospace;font-size:15px}
+  .msg.bad{color:var(--red)} .msg.ok{color:#2f6b2a}
+  .hint{display:none;background:#e9dcc0;padding:10px 12px;border-radius:3px;font-size:15px;margin-top:6px}
+  .hint.show{display:block}
+  .progress{display:flex;gap:6px;margin:0 0 14px}
+  .progress span{flex:1;height:6px;border-radius:3px;background:rgba(239,228,204,.18)}
+  .progress span.on{background:var(--gold)}
+  .start{background:var(--red);color:#fff;width:100%;margin-top:14px;font-size:17px}
+  .hidden{display:none}
+  .shake{animation:shake .35s}
+  @keyframes shake{25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+  .fade{animation:fade .5s ease-out}
+  @keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+  .card{background:linear-gradient(135deg,#6f8cff,#4a63d8);color:#fff;border-radius:12px;padding:20px;margin:18px 0;
+    box-shadow:0 10px 24px rgba(40,60,160,.35)}
+  .card .brand{font-family:"Playfair Display",serif;font-size:22px;font-weight:900}
+  .card .amt{font-size:40px;font-weight:600;margin:6px 0}
+  .card .code{font-family:"Special Elite",monospace;font-size:22px;letter-spacing:2px;background:rgba(255,255,255,.18);
+    padding:10px;border-radius:6px;text-align:center;margin-top:10px;word-break:break-all}
+  .copy{background:#fff;color:#2a3a9a;width:100%;margin-top:10px}
+  ol{padding-left:20px}
+  .sign{font-family:"Special Elite",monospace;font-size:18px;text-align:right;margin-top:18px}
+  .foot{color:rgba(239,228,204,.45);text-align:center;font-size:12px;margin-top:18px;font-family:"Special Elite",monospace}
+  .reset{color:rgba(239,228,204,.45)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="progress" id="progress"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+
+  <!-- INTRO -->
+  <section class="file fade" id="s-intro">
+    <div class="tab">Dossier n° 1958</div>
+    <div class="stamp">CONFIDENTIEL</div>
+    <div class="kicker">Brigade criminelle de Combourg</div>
+    <h1>L'affaire du pli disparu</h1>
+    <p class="type">Ce soir, 24 décembre, 18h et des poussières.<br>
+    Un pli d'une valeur inestimable (enfin, si : environ 100 €), destiné aux deux maîtres de cette maison, s'est volatilisé quelques heures avant Noël.</p>
+    <p class="type">Personne n'a rien vu. Personne n'a rien entendu. Comme d'habitude quand il faut sortir les poubelles.</p>
+    <p class="type">Heureusement, le voleur est un amateur : il a semé des pièces à conviction <b>partout dans la maison</b>. Le commissaire Marin, trop occupé à surveiller l'apéritif, vous confie l'enquête.</p>
+    <div class="note">Consignes :<br>
+    · Chaque étape vous dit où fouiller. La pièce trouvée permet de répondre.<br>
+    · Deux aides par étape : « Où chercher ? » et « Aide pour l'énigme ». Aucune honte à s'en servir. Un peu quand même.<br>
+    · Les accents et majuscules ne comptent pas.<br>
+    · Interdit de soudoyer le commissaire avec des chocolats. (Négociable.)</div>
+    <button class="start" id="startBtn">Ouvrir le dossier</button>
+  </section>
+
+  <!-- 1 SAPIN -->
+  <section class="file hidden" id="s-0">
+    <div class="tab">Pièce n° 1</div>
+    <div class="kicker">Étape 1 sur 6 · Fouille</div>
+    <h2>Le témoin</h2>
+    <p class="type">Un témoin (qui souhaite rester anonyme, mais qui a des moustaches et ronronne) affirme avoir vu une silhouette rôder près d'un drôle d'occupant du salon : il n'habite chez vous qu'en décembre, porte des boules sans jamais jouer au foot, et s'allume sans jamais se mettre en colère.</p>
+    <p class="type">Le voleur y a perdu un papier. Fouillez <b>dans ses branches</b>. Attention aux épines, la mutuelle ne rembourse pas les blessures d'enquête.</p>
+    <form data-step="0">
+      <label for="a0">Une fois la pièce n° 1 déchiffrée : où le voleur compte-t-il frapper ?</label>
+      <div class="row"><input id="a0" autocomplete="off" autocapitalize="characters" spellcheck="false"><button class="go">Valider</button></div>
+      <div class="msg"></div>
+      <button type="button" class="ghost" data-hint="w0">Où chercher ?</button>
+      <div class="hint" id="w0">Dans les branches du sapin de Noël.</div>
+      <button type="button" class="ghost" data-hint="h0">Aide pour l'énigme</button>
+      <div class="hint" id="h0">Chaque lettre a été avancée de 3 rangs dans l'alphabet. Reculez chaque lettre de 3 : le O devient L, le R devient O...</div>
+    </form>
+  </section>
+
+  <!-- 2 FRIGO -->
+  <section class="file hidden" id="s-1">
+    <div class="tab">Pièce n° 2</div>
+    <div class="kicker">Étape 2 sur 6 · Fouille</div>
+    <h2>Les dépositions</h2>
+    <p class="type">Le voleur vise donc le Louvre. Rien que ça. Modeste, le garçon.</p>
+    <p class="type">Trois membres du personnel étaient présents ce soir. Leurs dépositions ont été mises « au frais » dans la seule armoire de la maison où il ne fait jamais plus de 4 degrés. Cherchez dans la porte, entre la moutarde et ce pot de cornichons ouvert depuis 2019.</p>
+    <form data-step="1">
+      <label for="a1">D'après la pièce n° 2 : qui est le coupable ?</label>
+      <div class="row"><input id="a1" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="majordome, cuisinière ou jardinier"><button class="go">Valider</button></div>
+      <div class="msg"></div>
+      <button type="button" class="ghost" data-hint="w1">Où chercher ?</button>
+      <div class="hint" id="w1">Dans le réfrigérateur, dans la porte.</div>
+      <button type="button" class="ghost" data-hint="h1">Aide pour l'énigme</button>
+      <div class="hint" id="h1">Supposez tour à tour que chacun est coupable, et comptez combien de phrases deviennent vraies. Une seule hypothèse donne exactement une phrase vraie.</div>
+    </form>
+  </section>
+
+  <!-- 3 CHAUSSURE -->
+  <section class="file hidden" id="s-2">
+    <div class="tab">Pièce n° 3</div>
+    <div class="kicker">Étape 3 sur 6 · Fouille</div>
+    <h2>La police scientifique</h2>
+    <p class="type">Le jardinier ! Évidemment. On se méfie toujours du majordome, et c'est le type aux bottes en caoutchouc qui fait le coup.</p>
+    <p class="type">La police scientifique a fouillé ses poches et rédigé un rapport. Le commissaire l'a rangé là où personne n'ira jamais le chercher, pour des raisons olfactives évidentes : <b>dans une chaussure de Papa</b>.</p>
+    <p class="type">Courage. Retenez votre respiration.</p>
+    <form data-step="2">
+      <label for="a2">D'après le rapport : où le jardinier a-t-il caché son carnet ?</label>
+      <div class="row"><input id="a2" autocomplete="off" autocapitalize="characters" spellcheck="false"><button class="go">Valider</button></div>
+      <div class="msg"></div>
+      <button type="button" class="ghost" data-hint="w2">Où chercher ?</button>
+      <div class="hint" id="w2">Dans une chaussure ou un chausson de Papa, dans l'entrée.</div>
+      <button type="button" class="ghost" data-hint="h2">Aide pour l'énigme</button>
+      <div class="hint" id="h2">Le commissaire dit que « les premières impressions sont les bonnes ». Lisez la première lettre de chaque objet trouvé, de haut en bas.</div>
+    </form>
+  </section>
+
+  <!-- 4 GRENIER -->
+  <section class="file hidden" id="s-3">
+    <div class="tab">Pièce n° 4</div>
+    <div class="kicker">Étape 4 sur 6 · Fouille</div>
+    <h2>Le carnet du jardinier</h2>
+    <p class="type">Direction le grenier, là-haut, où les cartons, les décorations de 1997 et quelques araignées vivent en colocation depuis des années sans jamais payer de loyer.</p>
+    <p class="type">Le carnet du jardinier vous y attend. Prenez une lampe. Et si une araignée vous parle, ne répondez pas : elle fait peut-être partie du complot.</p>
+    <form data-step="3">
+      <label for="a3">D'après le carnet : quel est le code à 4 chiffres ?</label>
+      <div class="row"><input id="a3" inputmode="numeric" autocomplete="off" maxlength="4" placeholder="_ _ _ _"><button class="go">Valider</button></div>
+      <div class="msg"></div>
+      <button type="button" class="ghost" data-hint="w3">Où chercher ?</button>
+      <div class="hint" id="w3">Au grenier, à l'étage.</div>
+      <button type="button" class="ghost" data-hint="h3">Aide pour l'énigme</button>
+      <div class="hint" id="h3">Chaque phrase du carnet donne un chiffre, dans l'ordre. Le dernier se compte sur les lettres d'une ville que vous connaissez par cœur.</div>
+    </form>
+  </section>
+
+  <!-- 5 MIROIR -->
+  <section class="file hidden" id="s-4">
+    <div class="tab">Pièce n° 5</div>
+    <div class="kicker">Étape 5 sur 6 · Fouille</div>
+    <h2>Le complice</h2>
+    <p class="type">Rebondissement ! Le carnet révèle que le jardinier n'a pas agi seul. Il avait un complice, et ce complice a laissé un message.</p>
+    <p class="type">Il l'a caché là où, chaque matin, vous croisez une personne magnifique qui vous fait des grimaces : <b>le miroir de la salle de bain</b>.</p>
+    <p class="type">Le message est un peu bizarre. Mais vous êtes au bon endroit pour le lire.</p>
+    <form data-step="4">
+      <label for="a4">Qui est le complice ?</label>
+      <div class="row"><input id="a4" autocomplete="off" autocapitalize="characters" spellcheck="false"><button class="go">Valider</button></div>
+      <div class="msg"></div>
+      <button type="button" class="ghost" data-hint="w4">Où chercher ?</button>
+      <div class="hint" id="w4">Sur ou derrière le miroir de la salle de bain.</div>
+      <button type="button" class="ghost" data-hint="h4">Aide pour l'énigme</button>
+      <div class="hint" id="h4">Le texte est écrit à l'envers. Tenez la feuille face au miroir et lisez son reflet.</div>
+    </form>
+  </section>
+
+  <!-- 6 OREILLER -->
+  <section class="file hidden" id="s-5">
+    <div class="tab">Pièce n° 6</div>
+    <div class="kicker">Étape 6 sur 6 · Fouille</div>
+    <h2>Le pli</h2>
+    <p class="type">Un chat ! Le jardinier et un chat noir. Le duo le plus improbable depuis Laurel et Hardy.</p>
+    <p class="type">Interrogé (contre trois croquettes), le chat avoue tout : le pli est caché à l'endroit le plus douillet de la maison, là où vous posez la tête chaque nuit. Évidemment, c'est un chat, il ne pense qu'à dormir.</p>
+    <p class="type">Le code que vous avez trouvé au grenier vous servira peut-être encore...</p>
+    <form data-step="5">
+      <label for="a5">D'après la pièce n° 6 : quel nom ouvre le sceau ?</label>
+      <div class="row"><input id="a5" autocomplete="off" autocapitalize="characters" spellcheck="false"><button class="go">Ouvrir le pli</button></div>
+      <div class="msg"></div>
+      <button type="button" class="ghost" data-hint="w5">Où chercher ?</button>
+      <div class="hint" id="w5">Sous l'oreiller, dans votre chambre.</div>
+      <button type="button" class="ghost" data-hint="h5">Aide pour l'énigme</button>
+      <div class="hint" id="h5">Il a écrit les <i>Mémoires d'outre-tombe</i>, et une célèbre recette de filet de bœuf porte son nom.</div>
+    </form>
+  </section>
+
+  <!-- FIN -->
+  <section class="file hidden" id="s-end">
+    <div class="tab">Affaire classée</div>
+    <div class="stamp" style="border-color:#2f6b2a;color:#2f6b2a">RÉSOLU</div>
+    <div class="kicker">Bravo, enquêteurs</div>
+    <h1>Le pli est retrouvé !</h1>
+    <p class="type">Sous l'oreiller, entre deux plumes et un poil de chat, le pli. À l'intérieur, une invitation : votre talent d'enquêteurs ne restera pas sans emploi : une vraie scène de crime vous attend, avec dîner trois plats, comédiens, suspects et coupable à démasquer avant le dessert.</p>
+    <div class="card">
+      <div class="brand">fever</div>
+      <div>Carte-cadeau · La Soirée Criminelle</div>
+      <div class="amt">100 €</div>
+      <div style="font-size:13px;opacity:.85">Code à utiliser</div>
+      <div class="code" id="giftCode">déchiffrement...</div>
+      <button class="copy" id="copyBtn">Copier le code</button>
+    </div>
+    <h2 style="font-size:18px">Comment l'utiliser</h2>
+    <ol>
+      <li>Téléchargez l'application <b>Fever</b> (Android ou iPhone) et créez un compte. Attention : la carte ne fonctionne <b>que dans l'application</b>, pas sur le site internet.</li>
+      <li>Allez dans <b>Profil</b>, puis <b>Coupons</b>, touchez <b>Ajouter le coupon</b>, entrez le code ci-dessus et confirmez.</li>
+      <li>Cherchez « La Soirée Criminelle », choisissez la ville, la date et le nombre de places, puis touchez <b>Acheter</b>.</li>
+      <li>Sur la page de paiement, touchez <b>Appliquer coupon</b> et sélectionnez votre carte-cadeau. La réduction s'applique au total.</li>
+    </ol>
+    <div class="note">Le coupon est valable 1 an, jusqu'au 21 novembre 2027 : prenez le temps de choisir votre soirée.</div>
+    <p class="sign">Joyeux Noël !<br>Le commissaire Marin</p>
+    <p class="type" style="font-size:13px;color:#6b5a45">PS : le jardinier et le chat ont été relâchés pour bonne conduite. Le chat a gardé les croquettes.</p>
+  </section>
+
+  <div class="foot">Brigade criminelle de Combourg · <button class="ghost reset" id="resetBtn" style="font-size:12px">recommencer</button></div>
+</div>
+
+<script>
+(function(){
+  var HASHES=[["3cafd736f402e96ae25ff3505e4ddf5d06b928c73f1b15fd6e84aadc7d5ca726"],["383181923b9d5635397602ec2a5041dd9fd59abab2845d0eeac799ac1c1dcc11"],["6d4c37edf132aacdf392de7993b5e2c5fcc234b2944f802c43ef21b589940122"],["522e6198a268c62c01c9944cc2c06902d8308d65e6444eb8ad10bbe98dc362b6"],["d8f65e96e482a37e047634e3a087f6fd6a88a636587d7d3b622bb2e123b546fb"],["a9b0217517d098a78b2aac88577b871a80e1ac687da63885772520b4dcc8a383"]];
+  var SEALED="c980a8bbffe89fd5168516ff804b0f";
+  var WRONG=[
+    ["Ce mot ne veut rien dire... sauf en klingon. Reculez de trois.","Pas encore. Lettre par lettre, on ne s'énerve pas.","Les aides sont là pour ça. Personne ne le saura."],
+    ["Ce suspect a un alibi en béton : il faisait la vaisselle. Un miracle.","Non. Refaites le calcul des vérités.","Essayez l'aide. Le commissaire ne juge pas. Enfin, un peu."],
+    ["Non. Avez-vous bien survécu à l'odeur ?","Relisez le rapport, mais seulement le début.","L'aide est conseillée, surtout en cas de malaise olfactif."],
+    ["Le code ne colle pas. Une araignée ricane.","Relisez chaque phrase du carnet.","Un coup de pouce ?"],
+    ["Ce complice n'existe pas. Avez-vous essayé de lire dans le miroir ?","Toujours pas. Le message est à l'envers, pas vous.","L'aide pour l'énigme vous attend."],
+    ["Le sceau ne bouge pas. Il attend un nom précis.","Pensez au château de Combourg et à son chat noir.","L'aide vous mettra sur la voie."]
+  ];
+
+  function norm(s,step){
+    s=(s||"").normalize("NFD").replace(/[̀-ͯ]/g,"").toUpperCase().replace(/[^A-Z0-9]/g,"");
+    if(step===0){ s=s.replace(/^(LE|AU|MUSEEDU|MUSEE|DU)/,""); s=s.replace(/^(DU|LE)/,""); }
+    if(step===1){ s=s.replace(/^(CEST|LE|LA)+/,""); s=s.replace(/^(LE|LA)/,""); }
+    if(step===2){ s=s.replace(/^(DANSLE|AU|LE)/,""); }
+    if(step===4){ s=s.replace(/^(CEST|LE|UN)+/,""); s=s.replace(/NOIR$/,""); }
+    if(step===5){ s=s.replace(/^(FRANCOISRENE(DE)?|RENE|FRANCOIS|VICOMTE(DE)?)/,""); s=s.replace(/^DE/,""); }
+    return s;
+  }
+
+  // SHA-256 (fallback if crypto.subtle is unavailable)
+  function sha256js(ascii){
+    function r(v,a){return (v>>>a)|(v<<(32-a));}
+    var mp=Math.pow,mw=mp(2,32),res="",words=[],bl=ascii.length*8,hash=[],k=[],pc=0,ic={};
+    for(var c=2;pc<64;c++){ if(!ic[c]){ for(var i=0;i<313;i+=c){ic[i]=c;} hash[pc]=(mp(c,.5)*mw)|0; k[pc++]=(mp(c,1/3)*mw)|0; } }
+    hash=hash.slice(0,8);
+    ascii+="\x80"; while(ascii.length%64-56){ascii+="\x00";}
+    for(i=0;i<ascii.length;i++){ words[i>>2]|=ascii.charCodeAt(i)<<((3-i)%4)*8; }
+    words[words.length]=((bl/mw)|0); words[words.length]=bl;
+    for(var j=0;j<words.length;){
+      var w=words.slice(j,j+=16),oh=hash; hash=hash.slice(0,8);
+      for(i=0;i<64;i++){
+        var w15=w[i-15],w2=w[i-2],a=hash[0],e=hash[4];
+        var t1=hash[7]+(r(e,6)^r(e,11)^r(e,25))+((e&hash[5])^((~e)&hash[6]))+k[i]
+          +(w[i]=(i<16)?w[i]:(w[i-16]+(r(w15,7)^r(w15,18)^(w15>>>3))+w[i-7]+(r(w2,17)^r(w2,19)^(w2>>>10)))|0);
+        var t2=(r(a,2)^r(a,13)^r(a,22))+((a&hash[1])^(a&hash[2])^(hash[1]&hash[2]));
+        hash=[(t1+t2)|0].concat(hash); hash[4]=(hash[4]+t1)|0; hash.pop();
+      }
+      for(i=0;i<8;i++){hash[i]=(hash[i]+oh[i])|0;}
+    }
+    for(i=0;i<8;i++){ for(j=3;j+1;j--){ var b=(hash[i]>>(j*8))&255; res+=((b<16)?"0":"")+b.toString(16);} }
+    return res;
+  }
+  function sha256(s){
+    try{
+      if(window.crypto&&crypto.subtle&&window.TextEncoder){
+        return crypto.subtle.digest("SHA-256",new TextEncoder().encode(s)).then(function(buf){
+          return Array.prototype.map.call(new Uint8Array(buf),function(b){return ("0"+b.toString(16)).slice(-2);}).join("");
+        }).catch(function(){return sha256js(s);});
+      }
+    }catch(e){}
+    return Promise.resolve(sha256js(s));
+  }
+
+  var answers=[], step=-1, fails=[0,0,0,0,0,0];
+  function save(){ try{ localStorage.setItem("dossier1958v3",JSON.stringify({a:answers})); }catch(e){} }
+  function load(){ try{ var d=JSON.parse(localStorage.getItem("dossier1958v3")||"null"); if(d&&d.a) return d.a; }catch(e){} return null; }
+
+  function show(id){
+    document.querySelectorAll("section.file").forEach(function(s){s.classList.add("hidden");s.classList.remove("fade");});
+    var el=document.getElementById(id); el.classList.remove("hidden"); void el.offsetWidth; el.classList.add("fade");
+    window.scrollTo({top:0,behavior:"smooth"});
+    var bars=document.querySelectorAll("#progress span");
+    bars.forEach(function(b,i){ b.classList.toggle("on", i<answers.length); });
+  }
+  function goto(n){
+    step=n;
+    if(n>=6){ show("s-end"); reveal(); return; }
+    show("s-"+n);
+    var inp=document.getElementById("a"+n); setTimeout(function(){ try{inp.focus({preventScroll:true});}catch(e){} },400);
+  }
+  function reveal(){
+    sha256(answers.join("|")).then(function(hex){
+      var out="";
+      for(var i=0;i<SEALED.length/2;i++){
+        var c=parseInt(SEALED.substr(i*2,2),16)^parseInt(hex.substr(i*2,2),16);
+        out+=String.fromCharCode(c);
+      }
+      document.getElementById("giftCode").textContent=out;
+    });
+  }
+
+  document.getElementById("startBtn").addEventListener("click",function(){ goto(answers.length); });
+
+  document.querySelectorAll("form[data-step]").forEach(function(f){
+    f.addEventListener("submit",function(ev){
+      ev.preventDefault();
+      var n=+f.dataset.step, inp=f.querySelector("input"), msg=f.querySelector(".msg");
+      var v=norm(inp.value,n);
+      if(!v){ msg.className="msg bad"; msg.textContent="Il faut écrire une réponse."; return; }
+      sha256(v).then(function(hx){
+        if(HASHES[n].indexOf(hx)>=0){
+          msg.className="msg ok"; msg.textContent="Bonne réponse ! Pièce suivante...";
+          answers[n]=v; answers=answers.slice(0,n+1); save();
+          setTimeout(function(){ goto(n+1); },900);
+        }else{
+          var list=WRONG[n]; msg.className="msg bad"; msg.textContent=list[Math.min(fails[n],list.length-1)]; fails[n]++;
+          f.classList.remove("shake"); void f.offsetWidth; f.classList.add("shake");
+          if(fails[n]>=3){ document.getElementById("h"+n).classList.add("show"); }
+        }
+      });
+    });
+  });
+  document.querySelectorAll("[data-hint]").forEach(function(b){
+    b.addEventListener("click",function(){ document.getElementById(b.dataset.hint).classList.toggle("show"); });
+  });
+  document.getElementById("copyBtn").addEventListener("click",function(){
+    var t=document.getElementById("giftCode").textContent, btn=this;
+    try{ navigator.clipboard.writeText(t).then(function(){btn.textContent="Code copié !";},function(){btn.textContent="Sélectionnez le code pour le copier";}); }
+    catch(e){ btn.textContent="Sélectionnez le code pour le copier"; }
+  });
+  document.getElementById("resetBtn").addEventListener("click",function(){
+    answers=[]; fails=[0,0,0,0,0,0]; save();
+    document.querySelectorAll("input").forEach(function(i){i.value="";});
+    document.querySelectorAll(".msg").forEach(function(m){m.textContent="";});
+    document.querySelectorAll(".hint").forEach(function(h){h.classList.remove("show");});
+    show("s-intro");
+  });
+
+  var saved=load();
+  if(saved&&saved.length){ answers=saved; }
+  show("s-intro");
+})();
+</script>
+</body>
+</html>
